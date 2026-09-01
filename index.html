@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Monumental - Welkom / Onboarding</title>
+<style>
+  :root{
+    --ink:#0b1a2b; --muted:#5b6b7b; --line:#e2e8ef; --bg:#f6f8fa;
+    --brand:#1552d1; --brand-d:#0f3fa3; --ok:#0a7d38; --warn:#b23c17;
+    --card:#fff; --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.5}
+  .wrap{max-width:720px;margin:0 auto;padding:24px 18px 80px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+  .logo{font-weight:800;letter-spacing:.5px;font-size:20px}
+  .lang{display:flex;gap:4px}
+  .lang button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 12px;
+    font-size:13px;cursor:pointer;color:var(--muted)}
+  .lang button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  h1{font-size:26px;margin:14px 0 6px}
+  .lead{color:var(--muted);margin:0 0 22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;margin:0 0 18px;box-shadow:0 1px 2px rgba(11,26,43,.04)}
+  .card h2{font-size:17px;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+  .step-n{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;
+    border-radius:999px;background:var(--brand);color:#fff;font-size:13px;font-weight:700;flex:none}
+  .card p.hint{color:var(--muted);font-size:13.5px;margin:2px 0 14px}
+  label{display:block;font-size:13px;font-weight:600;margin:12px 0 4px}
+  .req{color:var(--warn)}
+  input,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+    font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
+  input:focus,select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(21,82,209,.12)}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row>div{flex:1;min-width:140px}
+  .callout{background:#fff8f1;border:1px solid #f3d6c2;border-radius:10px;padding:12px 14px;
+    font-size:13.5px;color:#7a3b1a;margin:10px 0}
+  .invoice{background:#f2f6ff;border:1px solid #cfe0ff;border-radius:10px;padding:14px 16px;font-size:14px;margin:12px 0}
+  .invoice dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px}
+  .invoice dt{color:var(--muted)}
+  .invoice dd{margin:0;font-weight:600}
+  .copybtn{margin-top:12px;border:1px solid var(--brand);background:#fff;color:var(--brand);
+    border-radius:10px;padding:8px 14px;font-size:13.5px;font-weight:600;cursor:pointer}
+  .copybtn:active{transform:translateY(1px)}
+  ol.guide{margin:6px 0 0;padding-left:20px}
+  ol.guide li{margin:6px 0}
+  a.pbna{display:inline-block;margin:12px 0 2px;background:var(--brand);color:#fff;text-decoration:none;
+    padding:11px 18px;border-radius:10px;font-weight:600;font-size:15px}
+  a.pbna:hover{background:var(--brand-d)}
+  .submit{width:100%;background:var(--ink);color:#fff;border:none;border-radius:12px;padding:15px;
+    font-size:16px;font-weight:700;cursor:pointer;margin-top:6px}
+  .submit:hover{background:#000}
+  .done{display:none;background:#eefaf1;border:1px solid #bfe6cb;border-radius:12px;padding:18px;color:#0a5c2c}
+  .done h2{color:#0a5c2c}
+  .en{display:none}
+  html[lang="en"] .nl{display:none}
+  html[lang="en"] .en{display:inline}
+  html[lang="en"] .en.block{display:block}
+  .tiny{font-size:12px;color:var(--muted);margin-top:6px}
+  code{background:#eef2f7;padding:1px 5px;border-radius:5px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">MONUMENTAL</div>
+    <div class="lang">
+      <button id="btn-nl" class="on" onclick="setLang('nl')">NL</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </header>
+
+  <h1><span class="nl">Welkom bij het team 👋</span><span class="en">Welcome to the team 👋</span></h1>
+  <p class="lead">
+    <span class="nl">Twee dingen om te regelen voordat je begint: je werkkleding-maten en je VCA-veiligheidsexamen. Vul dit even in, dan is alles in één keer geregeld. Duurt ~3 minuten.</span>
+    <span class="en">Two things to sort before you start: your workwear sizes and your VCA safety exam. Fill this in once and you're done. Takes ~3 minutes.</span>
+  </p>
+
+  <form id="form">
+    <!-- STEP 1: SIZES -->
+    <div class="card">
+      <h2><span class="step-n">1</span><span class="nl">Je werkkleding-maten</span><span class="en">Your workwear sizes</span></h2>
+      <p class="hint"><span class="nl">Zo ligt je kleding klaar op je eerste dag.</span><span class="en">So your gear is ready on day one.</span></p>
+
+      <div class="row">
+        <div>
+          <label><span class="nl">Maat trui / jas</span><span class="en">Top / jacket size</span> <span class="req">*</span></label>
+          <select name="top" required>
+            <option value=""></option>
+            <option>XS</option><option>S</option><option>M</option><option>L</option>
+            <option>XL</option><option>XXL</option><option>3XL</option>
+          </select>
+        </div>
+        <div>
+          <label><span class="nl">Broekmaat (EU)</span><span class="en">Trouser size (EU)</span> <span class="req">*</span></label>
+          <select name="pants" required>
+            <option value=""></option>
+            <option>44</option><option>46</option><option>48</option><option>50</option>
+            <option>52</option><option>54</option><option>56</option><option>58</option>
+            <option>60</option><option>62</option><option>64</option>
+          </select>
+        </div>
+        <div>
+          <label><span class="nl">Schoenmaat (EU)</span><span class="en">Shoe size (EU)</span> <span class="req">*</span></label>
+          <select name="shoes" required>
+            <option value=""></option>
+            <script>for(let s=36;s<=48;s++)document.write('<option>'+s+'</option>')</script>
+          </select>
+        </div>
+      </div>
+      <p class="tiny"><span class="nl">Twijfel je over broekmaat? Neem je normale EU-confectiemaat (bijv. 50 = M).</span><span class="en">Unsure on trousers? Use your normal EU size (e.g. 50 ≈ M).</span></p>
+    </div>
+
+    <!-- STEP 2: EXAM DETAILS -->
+    <div class="card">
+      <h2><span class="step-n">2</span><span class="nl">Je gegevens voor het VCA-examen</span><span class="en">Your details for the VCA exam</span></h2>
+      <p class="hint"><span class="nl">VCA (Basisveiligheid) is verplicht om op de bouw te mogen werken. Wij betalen het examen.</span><span class="en">VCA (basic safety) is required to work on site. We pay for the exam.</span></p>
+      <div class="callout">
+        <strong><span class="nl">Belangrijk:</span><span class="en">Important:</span></strong>
+        <span class="nl">vul je naam en geboortedatum precies in zoals op je paspoort / ID-kaart. Bij een afwijking mag je het examen niet maken.</span>
+        <span class="en">enter your name and date of birth exactly as on your passport / ID. Any mismatch and you won't be allowed to sit the exam.</span>
+      </div>
+
+      <div class="row">
+        <div style="min-width:110px;flex:0 0 120px">
+          <label><span class="nl">Aanhef</span><span class="en">Title</span> <span class="req">*</span></label>
+          <select name="title" required><option value=""></option><option value="Dhr.">Dhr.</option><option value="Mevr.">Mevr.</option></select>
+        </div>
+        <div>
+          <label><span class="nl">Voorletters</span><span class="en">Initials</span> <span class="req">*</span></label>
+          <input name="initials" placeholder="M." required />
+        </div>
+        <div>
+          <label><span class="nl">Tussenvoegsel</span><span class="en">Name prefix</span></label>
+          <input name="prefix" placeholder="van der" />
+        </div>
+      </div>
+      <label><span class="nl">Achternaam</span><span class="en">Surname</span> <span class="req">*</span></label>
+      <input name="surname" required />
+      <div class="row">
+        <div>
+          <label><span class="nl">Geboortedatum</span><span class="en">Date of birth</span> <span class="req">*</span></label>
+          <input name="dob" type="date" required />
+        </div>
+        <div>
+          <label>E-mail <span class="req">*</span></label>
+          <input name="email" type="email" placeholder="jij@email.com" required />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label><span class="nl">Voorkeurslocatie examen</span><span class="en">Preferred exam location</span> <span class="req">*</span></label>
+          <input name="location" placeholder="Amersfoort / Amsterdam / Groningen ..." required />
+        </div>
+        <div>
+          <label><span class="nl">Voorkeursweek</span><span class="en">Preferred week</span></label>
+          <input name="week" type="date" />
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: BOOK IT YOURSELF -->
+    <div class="card">
+      <h2><span class="step-n">3</span><span class="nl">Boek je examen (je betaalt niks)</span><span class="en">Book your exam (you pay nothing)</span></h2>
+      <p class="hint"><span class="nl">Je boekt het examen zelf op de PBNA-site. Kies bij het afrekenen <strong>Betaalmethode: Factuur</strong>, zodat de rekening naar ons gaat en jij niets hoeft te betalen.</span><span class="en">You book the exam yourself on the PBNA site. At checkout choose <strong>payment method: Factuur (invoice)</strong> so the bill comes to us and you pay nothing.</span></p>
+
+      <ol class="guide">
+        <li><span class="nl">Klik op de knop hieronder en kies <strong>BVCA - Nederlands</strong>, een datum & locatie.</span><span class="en">Click the button below and choose <strong>BVCA - Nederlands</strong>, a date & location.</span></li>
+        <li><span class="nl">Vul bij <em>Gegevens kandidaat</em> jouw naam/geboortedatum in (precies als op je ID).</span><span class="en">Under <em>Gegevens kandidaat</em>, enter your name/DOB (exactly as on your ID).</span></li>
+        <li><span class="nl"><em>Artikelen toevoegen</em> mag je overslaan.</span><span class="en">Skip <em>Artikelen toevoegen</em>.</span></li>
+        <li><span class="nl">Bij <em>Gegevens opdrachtgever</em> kies je <strong>Zakelijk</strong> en vul je onderstaande gegevens in:</span><span class="en">Under <em>Gegevens opdrachtgever</em> choose <strong>Zakelijk (business)</strong> and enter the details below:</span></li>
+      </ol>
+
+      <div class="invoice">
+        <dl>
+          <dt><span class="nl">Type bestelling</span><span class="en">Order type</span></dt><dd>Zakelijk</dd>
+          <dt>Naam bedrijf</dt><dd>Pantheon Bouw BV</dd>
+          <dt>Straat + nr.</dt><dd>Plantage Middenlaan 62</dd>
+          <dt>Postcode</dt><dd>1018 DH</dd>
+          <dt>Plaats</dt><dd>Amsterdam</dd>
+          <dt>Land</dt><dd>Nederland</dd>
+          <dt>Contactpersoon</dt><dd>Dhr. W.J.F. van den Haak</dd>
+          <dt>Telefoon</dt><dd>06 8325 7191</dd>
+          <dt>E-mail</dt><dd>wouter@monumental.co</dd>
+          <dt>E-mail factuur</dt><dd>bouw-invoices@monumental.co</dd>
+          <dt>Betaalmethode</dt><dd>Factuur</dd>
+        </dl>
+        <button type="button" class="copybtn" onclick="copyInvoice(this)"><span class="nl">Kopieer deze gegevens</span><span class="en">Copy these details</span></button>
+      </div>
+
+      <p class="hint"><span class="nl">Klaar? Klik dan op <strong>Bevestigen</strong> op de laatste stap. Je krijgt een bevestiging per mail van PBNA.</span><span class="en">Done? Click <strong>Bevestigen</strong> on the last step. PBNA emails you a confirmation.</span></p>
+      <a class="pbna" href="https://website.pbna.com/open-examen" target="_blank" rel="noopener"><span class="nl">Open PBNA en boek je examen →</span><span class="en">Open PBNA and book your exam →</span></a>
+
+      <label style="margin-top:18px"><span class="nl">Boekingsnummer / bevestiging van PBNA</span><span class="en">Booking / confirmation number from PBNA</span></label>
+      <input name="booking" placeholder="(optioneel / optional)" />
+      <p class="tiny"><span class="nl">Heb je 'm? Plak het nummer hier, dan weten wij dat het geregeld is.</span><span class="en">Got it? Paste it here so we know it's sorted.</span></p>
+    </div>
+
+    <button type="submit" class="submit"><span class="nl">Verstuur naar Monumental</span><span class="en">Send to Monumental</span></button>
+    <p class="tiny" style="text-align:center"><span class="nl">Je maten en gegevens gaan direct naar het onboarding-team.</span><span class="en">Your sizes and details go straight to the onboarding team.</span></p>
+  </form>
+
+  <div class="done card" id="done">
+    <h2>✓ <span class="nl">Gelukt!</span><span class="en">All done!</span></h2>
+    <p><span class="nl">Bedankt! Je e-mailprogramma opent nu met je gegevens. Druk op <strong>versturen</strong> om het af te ronden. Tot snel op de bouw!</span><span class="en">Thanks! Your email app is opening with your details. Hit <strong>send</strong> to finish. See you on site!</span></p>
+  </div>
+</div>
+
+<script>
+  var RECIPIENT = "wouter@monumental.co";
+
+  function setLang(l){
+    document.documentElement.lang = l;
+    document.getElementById('btn-nl').classList.toggle('on', l==='nl');
+    document.getElementById('btn-en').classList.toggle('on', l==='en');
+  }
+
+  function copyInvoice(btn){
+    var t = [
+      "Type bestelling: Zakelijk",
+      "Naam bedrijf: Pantheon Bouw BV",
+      "Adres: Plantage Middenlaan 62, 1018 DH Amsterdam, Nederland",
+      "Contactpersoon: Dhr. W.J.F. van den Haak",
+      "Telefoon: 06 8325 7191",
+      "E-mail: wouter@monumental.co",
+      "E-mail factuur: bouw-invoices@monumental.co",
+      "Betaalmethode: Factuur"
+    ].join("\n");
+    navigator.clipboard.writeText(t).then(function(){
+      var o = btn.innerHTML; btn.textContent = "✓ Gekopieerd"; setTimeout(function(){btn.innerHTML=o;},1600);
+    });
+  }
+
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.target, d = {};
+    new FormData(f).forEach(function(v,k){ d[k]=v; });
+    var body = [
+      "NIEUWE RO ONBOARDING",
+      "",
+      "== Werkkleding ==",
+      "Trui/jas: " + d.top,
+      "Broek (EU): " + d.pants,
+      "Schoenen (EU): " + d.shoes,
+      "",
+      "== VCA examen gegevens ==",
+      "Naam: " + [d.title, d.initials, d.prefix, d.surname].filter(Boolean).join(" "),
+      "Geboortedatum: " + d.dob,
+      "E-mail: " + d.email,
+      "Voorkeurslocatie: " + d.location,
+      "Voorkeursweek: " + (d.week || "-"),
+      "PBNA boekingsnummer: " + (d.booking || "(nog niet ingevuld)"),
+      ""
+    ].join("\n");
+    var subject = "RO onboarding: " + [d.initials, d.prefix, d.surname].filter(Boolean).join(" ");
+    var mailto = "mailto:" + RECIPIENT + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    f.style.display = "none";
+    document.getElementById('done').style.display = "block";
+    window.location.href = mailto;
+  });
+</script>
+</body>
+</html>
